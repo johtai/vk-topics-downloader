@@ -1,6 +1,7 @@
 import requests, urllib, sys, os
 from bs4 import BeautifulSoup
 
+
 url = sys.argv[1]
 print(url)
 response = requests.get(url)
@@ -20,7 +21,7 @@ for link in links:
             os.mkdir("topics")
         except FileExistsError:
             pass
-        
+
         f = open(f"topics/{url[url.find('@'):]}.html", 'w', encoding="UTF-8")
         f.write(webContent)
         f.close
